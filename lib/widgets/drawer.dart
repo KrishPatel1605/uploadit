@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uploadit/auth/auth_service.dart';
 
@@ -46,12 +45,39 @@ class MyDrawer extends StatelessWidget {
             ),
             const Divider(color: Colors.white24, thickness: 1),
             ListTile(
-              leading: const Icon(CupertinoIcons.home, color: Colors.white),
+              leading: const Icon(Icons.home, color: Colors.white),
               title: const Text(
                 "Home",
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
+            ),
+            ListTile(
+              leading: Icon(Icons.upload_file, color: Colors.white),
+              title: Text(
+                "Upload File",
+                textScaler: TextScaler.linear(1.2),
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.download, color: Colors.white),
+              title: Text(
+                "Download File",
+                textScaler: TextScaler.linear(1.2),
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.folder, color: Colors.white),
+              title: Text(
+                "My Files",
+                textScaler: TextScaler.linear(1.2),
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.white),
