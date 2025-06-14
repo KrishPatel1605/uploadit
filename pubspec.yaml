@@ -40,6 +40,8 @@ dependencies:
   qr_flutter: ^4.1.0
   flutter_svg: ^2.1.0
   path: ^1.9.1
+  path_provider: ^2.1.5
+  open_file: ^3.5.10
 
 dev_dependencies:
   flutter_test:
