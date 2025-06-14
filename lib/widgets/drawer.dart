@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uploadit/auth/auth_service.dart';
+import 'package:uploadit/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({super.key});
@@ -51,6 +52,7 @@ class MyDrawer extends StatelessWidget {
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
+              onTap: () => Navigator.pushNamed(context, Routes.homeRoute),
             ),
             ListTile(
               leading: Icon(Icons.upload_file, color: Colors.white),
@@ -59,7 +61,7 @@ class MyDrawer extends StatelessWidget {
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Routes.uploadRoute),
             ),
             ListTile(
               leading: Icon(Icons.download, color: Colors.white),
@@ -68,7 +70,7 @@ class MyDrawer extends StatelessWidget {
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Routes.downloadRoute),
             ),
             ListTile(
               leading: Icon(Icons.folder, color: Colors.white),
@@ -77,7 +79,7 @@ class MyDrawer extends StatelessWidget {
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Routes.myFilesRoute),
             ),
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.white),

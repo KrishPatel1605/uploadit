@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uploadit/auth/auth_gate.dart';
+import 'package:uploadit/pages/download_page.dart';
 import 'package:uploadit/pages/home_page.dart';
 import 'package:uploadit/pages/login_page.dart';
+import 'package:uploadit/pages/myfiles_page.dart';
 import 'package:uploadit/pages/register_page.dart';
+import 'package:uploadit/pages/upload_page.dart';
 import 'package:uploadit/utils/routes.dart';
 
 void main() async {
@@ -32,7 +35,10 @@ class MyApp extends StatelessWidget {
         // "/": (context) => HomePage(),
         Routes.loginRoute: (context) => LoginPage(),
         Routes.homeRoute: (context) => HomePage(),
-        Routes.registerRoute : (context) => RegisterPage()
+        Routes.registerRoute: (context) => RegisterPage(),
+        Routes.uploadRoute: (context) => UploadPage(),
+        Routes.downloadRoute: (context) => DownloadPage(),
+        Routes.myFilesRoute: (context) => MyFilesPage(),
       },
     );
   }
