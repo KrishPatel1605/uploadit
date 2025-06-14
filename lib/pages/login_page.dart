@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uploadit/auth/auth_service.dart';
 import 'package:uploadit/pages/register_page.dart';
+import 'package:uploadit/utils/routes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -33,10 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("Login"),
-      ),
+      appBar: AppBar(centerTitle: true, title: const Text("Login")),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 50),
         children: [
@@ -59,11 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           ElevatedButton(onPressed: login, child: const Text("Login")),
 
           GestureDetector(
-            onTap:
-                () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const RegisterPage()),
-                ),
+            onTap: () => Navigator.pushNamed(context, Routes.registerRoute),
             child: const Center(child: Text("Don't have an account? Sign Up")),
           ),
         ],

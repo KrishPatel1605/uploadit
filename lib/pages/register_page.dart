@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uploadit/auth/auth_service.dart';
+import 'package:uploadit/utils/routes.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -30,7 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
     try {
       await authService.signiUpWithEmailPassword(email, password);
 
-      Navigator.pop(context);
+      Navigator.pushReplacementNamed(context, Routes.loginRoute);
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(

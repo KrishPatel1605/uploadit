@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uploadit/auth/auth_gate.dart';
-// import 'package:uploadit/pages/home_page.dart';
-// import 'package:uploadit/pages/login_page.dart';
-// import 'package:uploadit/utils/routes.dart';
+import 'package:uploadit/pages/home_page.dart';
+import 'package:uploadit/pages/login_page.dart';
+import 'package:uploadit/pages/register_page.dart';
+import 'package:uploadit/utils/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,12 +26,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: AuthGate(),
-      // routes: {
-      //   "/": (context) => HomePage(),
-      //   Routes.loginRoute: (context) => LoginPage(),
-      //   Routes.homeRoute: (context) => HomePage(),
-      // },
+      routes: {
+        // "/": (context) => HomePage(),
+        Routes.loginRoute: (context) => LoginPage(),
+        Routes.homeRoute: (context) => HomePage(),
+        Routes.registerRoute : (context) => RegisterPage()
+      },
     );
   }
 }
