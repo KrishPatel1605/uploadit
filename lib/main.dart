@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         Routes.homeRoute: (context) => HomePage(),
         Routes.registerRoute: (context) => RegisterPage(),
         Routes.uploadRoute: (context) => UploadPage(),
-        Routes.downloadRoute: (context) => DownloadPage(),
+        Routes.downloadByCodeRoute: (context) => DownloadPage(),
         Routes.myFilesRoute: (context) => MyFilesPage(),
       },
     );

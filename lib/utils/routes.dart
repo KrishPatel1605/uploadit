@@ -1,8 +1,9 @@
 class Routes {
-  static String loginRoute = "/login";
-  static String homeRoute = "/home";
-  static String registerRoute = "/register";
+  static const loginRoute = "/login";
+  static const homeRoute = "/home";
+  static const registerRoute = "/register";
   static const uploadRoute = "/upload";
   static const myFilesRoute = "/myfiles";
-  static const downloadRoute = "/download";
+  static const downloadByQRRoute = '/download/qr';
+  static const downloadByCodeRoute = '/download/code';
 }

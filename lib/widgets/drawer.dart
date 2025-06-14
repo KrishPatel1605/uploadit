@@ -63,14 +63,44 @@ class MyDrawer extends StatelessWidget {
               ),
               onTap: () => Navigator.pushNamed(context, Routes.uploadRoute),
             ),
-            ListTile(
-              leading: Icon(Icons.download, color: Colors.white),
-              title: Text(
+            ExpansionTile(
+              leading: const Icon(Icons.download, color: Colors.white),
+              title: const Text(
                 "Download File",
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () => Navigator.pushNamed(context, Routes.downloadRoute),
+              collapsedIconColor: Colors.white,
+              iconColor: Colors.white,
+              childrenPadding: const EdgeInsets.only(left: 40),
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.qr_code, color: Colors.white),
+                  title: const Text(
+                    "By QR Code",
+                    textScaler: TextScaler.linear(1.1),
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap:
+                      () => Navigator.pushNamed(
+                        context,
+                        Routes.downloadByQRRoute,
+                      ),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.input, color: Colors.white),
+                  title: const Text(
+                    "By Code Input",
+                    textScaler: TextScaler.linear(1.1),
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap:
+                      () => Navigator.pushNamed(
+                        context,
+                        Routes.downloadByCodeRoute,
+                      ),
+                ),
+              ],
             ),
             ListTile(
               leading: Icon(Icons.folder, color: Colors.white),
