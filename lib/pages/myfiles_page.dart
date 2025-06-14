@@ -1,8 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class MyFilesPage extends StatelessWidget {
   const MyFilesPage({super.key});
+
+  void showQrPopup(BuildContext context, String code) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    QrImageView(data: code, size: 150),
+                    const SizedBox(height: 10),
+                    Text(
+                      code,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Close Button
+              Positioned(
+                top: -10,
+                right: -10,
+                child: IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +75,12 @@ class MyFilesPage extends StatelessWidget {
               return ListTile(
                 title: Text(file['original_name']),
                 subtitle: Text("Code: ${file['download_code']}"),
+                trailing: IconButton(
+                  onPressed: () {
+                    showQrPopup(context, file['download_code']);
+                  },
+                  icon: Icon(Icons.qr_code),
+                ),
               );
             },
           );
