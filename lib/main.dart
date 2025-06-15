@@ -5,7 +5,8 @@ import 'package:uploadit/auth/auth_gate.dart';
 import 'package:uploadit/pages/downloadbycode_page.dart';
 import 'package:uploadit/pages/home_page.dart';
 import 'package:uploadit/pages/login_page.dart';
-import 'package:uploadit/pages/myfiles_page.dart';
+import 'package:uploadit/pages/mydownloads_page.dart';
+import 'package:uploadit/pages/myuploads_page.dart';
 import 'package:uploadit/pages/register_page.dart';
 import 'package:uploadit/pages/upload_page.dart';
 import 'package:uploadit/utils/routes.dart';
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
         Routes.registerRoute: (context) => RegisterPage(),
         Routes.uploadRoute: (context) => UploadPage(),
         Routes.downloadByCodeRoute: (context) => DownloadByCodePage(),
-        Routes.myFilesRoute: (context) => MyFilesPage(),
+        Routes.myUploadsRoute: (context) => MyUploadsPage(),
+        Routes.myDownloadsRoute: (context) => MyDownloadsPage(),
       },
     );
   }

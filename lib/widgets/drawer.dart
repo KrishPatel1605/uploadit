@@ -102,14 +102,44 @@ class MyDrawer extends StatelessWidget {
                 ),
               ],
             ),
-            ListTile(
+            ExpansionTile(
               leading: Icon(Icons.folder, color: Colors.white),
               title: Text(
                 "My Files",
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () => Navigator.pushNamed(context, Routes.myFilesRoute),
+              collapsedIconColor: Colors.white,
+              iconColor: Colors.white,
+              childrenPadding: const EdgeInsets.only(left: 40),
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.qr_code, color: Colors.white),
+                  title: const Text(
+                    "My Uploads",
+                    textScaler: TextScaler.linear(1.1),
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap:
+                      () => Navigator.pushNamed(
+                        context,
+                        Routes.myUploadsRoute,
+                      ),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.input, color: Colors.white),
+                  title: const Text(
+                    "My Downloads",
+                    textScaler: TextScaler.linear(1.1),
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap:
+                      () => Navigator.pushNamed(
+                        context,
+                        Routes.myDownloadsRoute,
+                      ),
+                ),
+              ],
             ),
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.white),

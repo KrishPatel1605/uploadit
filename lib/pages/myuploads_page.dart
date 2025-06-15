@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class MyFilesPage extends StatelessWidget {
-  const MyFilesPage({super.key});
+class MyUploadsPage extends StatelessWidget {
+  const MyUploadsPage({super.key});
 
   void showQrPopup(BuildContext context, String code) {
     showDialog(
