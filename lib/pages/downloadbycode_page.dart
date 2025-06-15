@@ -6,14 +6,14 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class DownloadPage extends StatefulWidget {
-  const DownloadPage({super.key});
-
+class DownloadByCodePage extends StatefulWidget {
+  const DownloadByCodePage({super.key});
+  
   @override
-  State<DownloadPage> createState() => _DownloadPageState();
+  State<DownloadByCodePage> createState() => _DownloadByCodePageState();
 }
 
-class _DownloadPageState extends State<DownloadPage> {
+class _DownloadByCodePageState extends State<DownloadByCodePage> {
   final _codeController = TextEditingController();
   final _supabase = Supabase.instance.client;
 
@@ -42,8 +42,17 @@ class _DownloadPageState extends State<DownloadPage> {
           .from('uploadit')
           .download(filePath);
 
-      final tempDir = await getTemporaryDirectory();
-      final localFile = File('${tempDir.path}/$fileName');
+      final externalDir = await getExternalStorageDirectory();
+      if (externalDir==null) {
+        throw Exception("Could not access external directory");
+      }
+
+      final targetDir = Directory('$externalDir/Downloads');
+      if (!await targetDir.exists()) {
+        await targetDir.create(recursive: true);
+      }
+
+      final localFile = File('${targetDir.path}/$fileName');
       await localFile.writeAsBytes(fileBytes);
 
       await OpenFile.open(localFile.path);

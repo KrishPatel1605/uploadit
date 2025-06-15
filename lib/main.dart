@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uploadit/auth/auth_gate.dart';
-import 'package:uploadit/pages/download_page.dart';
+import 'package:uploadit/pages/downloadbycode_page.dart';
 import 'package:uploadit/pages/home_page.dart';
 import 'package:uploadit/pages/login_page.dart';
 import 'package:uploadit/pages/myfiles_page.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         Routes.homeRoute: (context) => HomePage(),
         Routes.registerRoute: (context) => RegisterPage(),
         Routes.uploadRoute: (context) => UploadPage(),
-        Routes.downloadByCodeRoute: (context) => DownloadPage(),
+        Routes.downloadByCodeRoute: (context) => DownloadByCodePage(),
         Routes.myFilesRoute: (context) => MyFilesPage(),
       },
     );
