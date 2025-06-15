@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uploadit/auth/auth_gate.dart';
 import 'package:uploadit/pages/downloadbycode_page.dart';
+import 'package:uploadit/pages/downloadbyqr_page.dart';
 import 'package:uploadit/pages/home_page.dart';
 import 'package:uploadit/pages/login_page.dart';
 import 'package:uploadit/pages/mydownloads_page.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         Routes.registerRoute: (context) => RegisterPage(),
         Routes.uploadRoute: (context) => UploadPage(),
         Routes.downloadByCodeRoute: (context) => DownloadByCodePage(),
+        Routes.downloadByQRRoute: (context) => DownloadByQRPage(),
         Routes.myUploadsRoute: (context) => MyUploadsPage(),
         Routes.myDownloadsRoute: (context) => MyDownloadsPage(),
       },
