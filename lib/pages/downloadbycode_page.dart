@@ -47,7 +47,7 @@ class _DownloadByCodePageState extends State<DownloadByCodePage> {
         throw Exception("Could not access external directory");
       }
 
-      final targetDir = Directory('$externalDir/Downloads');
+      final targetDir = Directory('${externalDir.path}/Downloads');
       if (!await targetDir.exists()) {
         await targetDir.create(recursive: true);
       }
