@@ -114,7 +114,7 @@ class MyDrawer extends StatelessWidget {
               childrenPadding: const EdgeInsets.only(left: 40),
               children: [
                 ListTile(
-                  leading: const Icon(Icons.qr_code, color: Colors.white),
+                  leading: const Icon(Icons.upload_file, color: Colors.white),
                   title: const Text(
                     "My Uploads",
                     textScaler: TextScaler.linear(1.1),
@@ -127,7 +127,7 @@ class MyDrawer extends StatelessWidget {
                       ),
                 ),
                 ListTile(
-                  leading: const Icon(Icons.input, color: Colors.white),
+                  leading: const Icon(Icons.download, color: Colors.white),
                   title: const Text(
                     "My Downloads",
                     textScaler: TextScaler.linear(1.1),
