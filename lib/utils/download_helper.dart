@@ -34,7 +34,6 @@ Future<void> downloadFileByCode(BuildContext context, String code) async {
     if (externalDir == null) {
       throw Exception("Could not access external directory");
     }
-    print('External dir: ${externalDir?.path}');
 
     final targetDir = Directory('${externalDir.path}/Downloads');
     if (!await targetDir.exists()) {
@@ -42,9 +41,7 @@ Future<void> downloadFileByCode(BuildContext context, String code) async {
     }
 
     final localFile = File('${targetDir.path}/$fileName');
-    print('Writing to: ${localFile.path}');
     await localFile.writeAsBytes(fileBytes);
-    print('File written successfully');
 
     await OpenFile.open(localFile.path);
   } catch (e) {
