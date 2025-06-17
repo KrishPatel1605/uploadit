@@ -55,6 +55,7 @@ class _RegisterPageState extends State<RegisterPage> {
           TextField(
             controller: _emailController,
             decoration: const InputDecoration(labelText: "Email"),
+            keyboardType: TextInputType.emailAddress,
           ),
 
           //password
