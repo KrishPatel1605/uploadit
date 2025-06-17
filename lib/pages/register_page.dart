@@ -31,7 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
     try {
       await authService.signiUpWithEmailPassword(email, password);
 
-      Navigator.pushReplacementNamed(context, Routes.loginRoute);
+      Navigator.pushReplacementNamed(context, Routes.homeRoute);
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(
