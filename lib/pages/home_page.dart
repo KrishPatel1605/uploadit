@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushReplacementNamed(context, Routes.downloadByQRRoute);
+              Navigator.pushNamed(context, Routes.downloadByQRRoute);
             },
             icon: Icon(Icons.qr_code_scanner),
           ),
