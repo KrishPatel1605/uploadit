@@ -21,25 +21,28 @@ class MyDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             Container(
-              color: Colors.deepPurple,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
+                    radius: 28,
                     backgroundColor: Colors.white,
                     child: Icon(Icons.person, color: Colors.deepPurple),
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      currentEmail ?? 'No Email',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      overflow: TextOverflow.ellipsis,
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Logged in as:',
+                    style: TextStyle(color: Colors.white70, fontSize: 14),
+                  ),
+                  Text(
+                    currentEmail ?? 'No Email',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
@@ -121,10 +124,7 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap:
-                      () => Navigator.pushNamed(
-                        context,
-                        Routes.myUploadsRoute,
-                      ),
+                      () => Navigator.pushNamed(context, Routes.myUploadsRoute),
                 ),
                 ListTile(
                   leading: const Icon(Icons.download, color: Colors.white),
@@ -134,10 +134,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap:
-                      () => Navigator.pushNamed(
-                        context,
-                        Routes.myDownloadsRoute,
-                      ),
+                      () =>
+                          Navigator.pushNamed(context, Routes.myDownloadsRoute),
                 ),
               ],
             ),
