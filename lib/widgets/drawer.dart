@@ -55,7 +55,10 @@ class MyDrawer extends StatelessWidget {
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () => Navigator.pushNamed(context, Routes.homeRoute),
+              onTap: () {
+                Navigator.pushNamed(context, Routes.homeRoute);
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               leading: Icon(Icons.upload_file, color: Colors.white),
@@ -64,7 +67,10 @@ class MyDrawer extends StatelessWidget {
                 textScaler: TextScaler.linear(1.2),
                 style: TextStyle(color: Colors.white),
               ),
-              onTap: () => Navigator.pushNamed(context, Routes.uploadRoute),
+              onTap: () {
+                Navigator.pushNamed(context, Routes.uploadRoute);
+                Navigator.pop(context);
+              },
             ),
             ExpansionTile(
               leading: const Icon(Icons.download, color: Colors.white),
@@ -84,11 +90,10 @@ class MyDrawer extends StatelessWidget {
                     textScaler: TextScaler.linear(1.1),
                     style: TextStyle(color: Colors.white),
                   ),
-                  onTap:
-                      () => Navigator.pushNamed(
-                        context,
-                        Routes.downloadByQRRoute,
-                      ),
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.downloadByQRRoute);
+                    Navigator.pop(context);
+                  },
                 ),
                 ListTile(
                   leading: const Icon(Icons.input, color: Colors.white),
@@ -97,11 +102,10 @@ class MyDrawer extends StatelessWidget {
                     textScaler: TextScaler.linear(1.1),
                     style: TextStyle(color: Colors.white),
                   ),
-                  onTap:
-                      () => Navigator.pushNamed(
-                        context,
-                        Routes.downloadByCodeRoute,
-                      ),
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.downloadByCodeRoute);
+                    Navigator.pop(context);
+                  },
                 ),
               ],
             ),
@@ -123,8 +127,10 @@ class MyDrawer extends StatelessWidget {
                     textScaler: TextScaler.linear(1.1),
                     style: TextStyle(color: Colors.white),
                   ),
-                  onTap:
-                      () => Navigator.pushNamed(context, Routes.myUploadsRoute),
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.myUploadsRoute);
+                    Navigator.pop(context);
+                  },
                 ),
                 ListTile(
                   leading: const Icon(Icons.download, color: Colors.white),
@@ -133,9 +139,10 @@ class MyDrawer extends StatelessWidget {
                     textScaler: TextScaler.linear(1.1),
                     style: TextStyle(color: Colors.white),
                   ),
-                  onTap:
-                      () =>
-                          Navigator.pushNamed(context, Routes.myDownloadsRoute),
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.myDownloadsRoute);
+                    Navigator.pop(context);
+                  },
                 ),
               ],
             ),
