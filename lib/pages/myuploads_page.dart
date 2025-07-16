@@ -3,6 +3,8 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uploadit/utils/download_helper.dart';
+import 'package:uploadit/utils/routes.dart';
+import 'package:uploadit/widgets/success_popup.dart';
 
 class MyUploadsPage extends StatefulWidget {
   const MyUploadsPage({super.key});
@@ -67,10 +69,22 @@ class _MyUploadsPageState extends State<MyUploadsPage> {
                 ListTile(
                   leading: const Icon(Icons.download),
                   title: const Text('Download'),
-                  onTap: () {
+                  onTap: () async {
                     final code = file['download_code'];
                     Navigator.pop(context);
                     downloadFileByCode(context, code);
+                    await showSuccessPopup(
+                      context: context,
+                      title: 'Download complete!',
+                      message: 'Your file has been successfully downloaded.',
+                      autoCloseDuration: const Duration(seconds: 2),
+                      onClose: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          Routes.myDownloadsRoute,
+                        );
+                      },
+                    );
                   },
                 ),
                 ListTile(

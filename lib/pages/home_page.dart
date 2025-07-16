@@ -40,8 +40,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final currentEmail = authService.getCurrentUserEmail();
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -119,19 +117,38 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     const SizedBox(height: 8),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Uploads : ${c.uploads}',
-                          style: Theme.of(context).textTheme.bodyMedium,
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 12,
                         ),
-                        const SizedBox(width: 20),
-                        Text(
-                          'Downloads : ${c.downloads}',
-                          style: Theme.of(context).textTheme.bodyMedium,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.cloud_upload,
+                              color: Colors.purpleAccent,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Uploads: ${c.uploads}',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            const SizedBox(width: 20),
+                            Icon(Icons.download, color: Colors.purple),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Downloads: ${c.downloads}',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 );

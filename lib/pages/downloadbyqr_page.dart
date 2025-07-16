@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:uploadit/utils/download_helper.dart';
+import 'package:uploadit/utils/routes.dart';
+import 'package:uploadit/widgets/success_popup.dart';
 
 class DownloadByQRPage extends StatefulWidget {
   const DownloadByQRPage({super.key});
@@ -19,7 +21,15 @@ class _DownloadByQRPageState extends State<DownloadByQRPage> {
     if (code != null && code.isNotEmpty) {
       _hasScanned = true;
       await downloadFileByCode(context, code);
-      if (mounted) Navigator.of(context).pop();
+      await showSuccessPopup(
+        context: context,
+        title: 'Download complete!',
+        message: 'Your file has been successfully downloaded.',
+        autoCloseDuration: const Duration(seconds: 2),
+        onClose: () {
+          Navigator.pushReplacementNamed(context, Routes.myDownloadsRoute);
+        },
+      );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Invalid QR code")),

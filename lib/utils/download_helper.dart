@@ -43,7 +43,7 @@ Future<void> downloadFileByCode(BuildContext context, String code) async {
     final localFile = File('${targetDir.path}/$fileName');
     await localFile.writeAsBytes(fileBytes);
 
-    await OpenFile.open(localFile.path);
+    // await OpenFile.open(localFile.path);
   } catch (e) {
     ScaffoldMessenger.of(
       context,
