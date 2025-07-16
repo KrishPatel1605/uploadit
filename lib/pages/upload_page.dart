@@ -2,8 +2,9 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:uploadit/utils/routes.dart';
+import 'package:uploadit/widgets/success_popup.dart';
 import 'package:uuid/uuid.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 import 'package:path/path.dart' as p;
 
 class UploadPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class UploadPage extends StatefulWidget {
 
 class _UploadPageState extends State<UploadPage> {
   final _supabase = Supabase.instance.client;
-  String? _downloadCode;
+  String? _fileName;
 
   void pickAndUploadFile() async {
     final result = await FilePicker.platform.pickFiles();
@@ -39,9 +40,15 @@ class _UploadPageState extends State<UploadPage> {
         'download_code': downloadCode,
       });
 
-      setState(() {
-        _downloadCode = downloadCode;
-      });
+      await showSuccessPopup(
+        context: context,
+        title: 'Upload complete!',
+        message: 'Your file has been successfully uploaded.',
+        autoCloseDuration: const Duration(seconds: 2),
+        onClose: () {
+          Navigator.pushReplacementNamed(context, Routes.myUploadsRoute);
+        },
+      );
     } catch (e) {
       ScaffoldMessenger.of(
         context,
@@ -54,21 +61,61 @@ class _UploadPageState extends State<UploadPage> {
     return Scaffold(
       appBar: AppBar(title: const Text("Upload File")),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            ElevatedButton(
-              onPressed: pickAndUploadFile,
-              child: const Text("Pick and Upload File"),
+            GestureDetector(
+              onTap: pickAndUploadFile,
+              child: DottedBorderBox(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.upload_file, size: 40, color: Colors.grey),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Drag and drop your file here\nor click to select',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    if (_fileName != null) ...[
+                      const SizedBox(height: 10),
+                      Text(
+                        'Selected: $_fileName',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
             ),
-            if (_downloadCode != null) ...[
-              const SizedBox(height: 24),
-              Text("Share this code to download: $_downloadCode"),
-              QrImageView(data: _downloadCode!, size: 180),
-            ],
           ],
         ),
       ),
+    );
+  }
+}
+
+class DottedBorderBox extends StatelessWidget {
+  final Widget child;
+
+  const DottedBorderBox({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 180,
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey,
+          style: BorderStyle.solid,
+          width: 2,
+        ),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Center(child: child),
     );
   }
 }
