@@ -71,16 +71,17 @@ class _MyUploadsPageState extends State<MyUploadsPage> {
                   title: const Text('Download'),
                   onTap: () async {
                     final code = file['download_code'];
+                    final rootContext = Navigator.of(context);
                     Navigator.pop(context);
-                    downloadFileByCode(context, code);
+                    downloadFileByCode(rootContext.context, code);
                     await showSuccessPopup(
-                      context: context,
+                      context: rootContext.context,
                       title: 'Download complete!',
                       message: 'Your file has been successfully downloaded.',
                       autoCloseDuration: const Duration(seconds: 2),
                       onClose: () {
                         Navigator.pushReplacementNamed(
-                          context,
+                          rootContext.context,
                           Routes.myDownloadsRoute,
                         );
                       },
