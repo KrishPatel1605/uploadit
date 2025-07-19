@@ -56,8 +56,8 @@ class MyDrawer extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onTap: () {
-                Navigator.pushNamed(context, Routes.homeRoute);
                 Navigator.pop(context);
+                Navigator.pushNamed(context, Routes.homeRoute);
               },
             ),
             ListTile(
@@ -68,8 +68,8 @@ class MyDrawer extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onTap: () {
-                Navigator.pushNamed(context, Routes.uploadRoute);
                 Navigator.pop(context);
+                Navigator.pushNamed(context, Routes.uploadRoute);
               },
             ),
             ExpansionTile(
@@ -91,8 +91,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.downloadByQRRoute);
                     Navigator.pop(context);
+                    Navigator.pushNamed(context, Routes.downloadByQRRoute);
                   },
                 ),
                 ListTile(
@@ -103,8 +103,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.downloadByCodeRoute);
                     Navigator.pop(context);
+                    Navigator.pushNamed(context, Routes.downloadByCodeRoute);
                   },
                 ),
               ],
@@ -128,8 +128,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.myUploadsRoute);
                     Navigator.pop(context);
+                    Navigator.pushNamed(context, Routes.myUploadsRoute);
                   },
                 ),
                 ListTile(
@@ -140,8 +140,8 @@ class MyDrawer extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.myDownloadsRoute);
                     Navigator.pop(context);
+                    Navigator.pushNamed(context, Routes.myDownloadsRoute);
                   },
                 ),
               ],
